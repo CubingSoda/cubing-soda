@@ -13,7 +13,7 @@ export default function SinglePost({ allPosts }) {
   const [shown, setShown] = useState(allPosts);
 
   return (
-    <UI page="Posts">
+    <UI page="Posts" keywords={["posts"]}>
       <div className={styles.wrapper}>
         <PostSearch posts={allPosts} shown={setShown} />
 

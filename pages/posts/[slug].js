@@ -8,7 +8,7 @@ import styles from "styles/Posts.module.scss";
 
 export default function SinglePost({ post }) {
   return (
-    <UI page={post.title} desc={post.desc}>
+    <UI page={post.title} desc={post.desc} keywords={post.tags}>
       <div className={styles.wrapper}>
         <Post postData={post} content />
       </div>

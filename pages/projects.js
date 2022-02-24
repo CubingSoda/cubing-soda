@@ -9,7 +9,7 @@ import styles from "styles/Projects.module.scss";
 
 export default function Projects() {
   return (
-    <UI page="Projects">
+    <UI page="Projects" keywords={["projects"]}>
       <main className={styles.projects}>
         {projects.map((project) => {
           return (

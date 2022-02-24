@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-export default function Meta({ page, desc }) {
+export default function Meta({ page, desc, keywords }) {
   let titleText;
   titleText = page ? `${page} | CubingSoda` : `CubingSoda`;
 
@@ -14,10 +14,19 @@ export default function Meta({ page, desc }) {
       <meta charSet="UTF-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
-      <meta
-        name="keywords"
-        content="cubingsoda, programming, coding, js, javascript, py, python, react, reactjs"
-      />
+      {keywords ? (
+        <meta
+          name="keywords"
+          content={`cubingsoda, programming, coding,${keywords.map(
+            (keyword) => {
+              return ` ${keyword.toLowerCase()}`;
+            }
+          )}`}
+        />
+      ) : (
+        <meta name="keywords" content="cubingsoda, programming, coding" />
+      )}
+
       <meta name="description" content={descText} />
 
       <meta property="og:image" content="/favicons/icon.png" />
