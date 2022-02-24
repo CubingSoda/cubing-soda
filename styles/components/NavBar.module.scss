@@ -37,6 +37,7 @@
 }
 .repoLink:hover span {
   color: #007bff;
+  transition: 0.3s ease-in;
 
   @media (prefers-color-scheme: dark) {
     color: #00aaff;

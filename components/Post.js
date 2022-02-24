@@ -28,7 +28,7 @@ export default function Post({ postData, content }) {
 
         {!content ? (
           <Link href={`/posts/${postData.slug}`}>
-            <a className={styles.readMore}>READ MORE</a>
+            <a className={styles.viewArticle}>VIEW ARTICLE</a>
           </Link>
         ) : (
           ""
