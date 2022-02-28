@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://cubingsoda.pages.dev/</loc>
-    <lastmod>2022-02-03</lastmod>
-    <changefreq>never</changefreq>
-  </url>
-  <url>
-    <loc>https://cubingsoda.pages.dev/projects</loc>
-    <lastmod>2022-02-03</lastmod>
-    <changefreq>never</changefreq>
-  </url>
-  <url>
-    <loc>https://cubingsoda.pages.dev/posts</loc>
-    <lastmod>2022-02-03</lastmod>
-    <changefreq>never</changefreq>
-  </url>
+   <url>
+      <loc>https://cubingsoda.pages.dev/</loc>
+   </url>
+   <url>
+      <loc>https://cubingsoda.pages.dev/projects</loc>
+   </url>
+   <url>
+      <loc>https://cubingsoda.pages.dev/posts</loc>
+   </url>
+   
+   <url>
+      <loc>https://cubingsoda.pages.dev/posts/new-site</loc>
+   </url>
+   <url>
+      <loc>https://cubingsoda.pages.dev/posts/whats-next</loc>
+   </url>
+   <url>
+      <loc>https://cubingsoda.pages.dev/posts/switched-to-manjaro</loc>
+   </url>
 </urlset>
