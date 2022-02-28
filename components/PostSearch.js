@@ -18,7 +18,6 @@ export default function PostSearch({ posts, shown }) {
       if (
         post.title.toLowerCase().includes(inputValueLower) ||
         post.date.toLowerCase().includes(inputValueLower) ||
-        post.content.toLowerCase().includes(inputValueLower) ||
         post.desc.toLowerCase().includes(inputValueLower)
       ) {
         use.push(post);

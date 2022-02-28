@@ -11,13 +11,12 @@
 .hello {
   font-family: "Open Sans";
   font-weight: bold;
-  letter-spacing: -2px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: var(--text-color);
-  font-size: max(6.5vw, 4rem);
+  font-size: max(8.5vw, 4rem);
   margin: 1rem;
 
   @media screen and (max-width: 607px) {

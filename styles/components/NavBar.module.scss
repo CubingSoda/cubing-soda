@@ -59,7 +59,7 @@
   border-radius: 0.4rem;
   margin: 2rem;
   background: var(--second-bg-color);
-  width: 84%;
+  width: calc(100vw - 2rem);
   height: 70%;
   z-index: 1;
   color: white;
@@ -100,12 +100,12 @@
 }
 
 .hamShow {
-  left: 1%;
+  left: -0.9rem;
   transition: 0.4s ease-out;
 }
 
 .hamHide {
-  left: -95vw;
+  left: -102vw;
   transition: 0.4s ease-out;
 }
 
