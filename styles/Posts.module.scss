@@ -86,17 +86,17 @@
   }
   code {
     font-family: "Fira Code", monospace;
-    background: #56000b;
+    background: #6a0303;
     color: white;
     border-radius: 5px;
-    padding: 2px;
+    padding: 3px 6px;
     font-size: 0.85rem;
   }
   img {
     display: block;
     margin: 0 auto;
     width: min(76vw, 39rem);
-    border-radius: 0.8rem;
+    border-radius: 1rem;
     padding: 0.3rem;
   }
 }
