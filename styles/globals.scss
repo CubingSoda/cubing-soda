@@ -101,5 +101,5 @@ a:hover {
 // BLOG
 
 img[alt="Velja"] {
-  width: 27rem !important;
+  width: min(24rem, 65vw) !important;
 }
