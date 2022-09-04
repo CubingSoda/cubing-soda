@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "styles/Posts.module.scss";
+import styles from "styles/Blog.module.scss";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -27,7 +27,7 @@ export default function Post({ postData, content }) {
         </div>
 
         {!content ? (
-          <Link href={`/posts/${postData.slug}`}>
+          <Link href={`/blog/${postData.slug}`}>
             <a className={styles.viewArticle}>VIEW ARTICLE</a>
           </Link>
         ) : (

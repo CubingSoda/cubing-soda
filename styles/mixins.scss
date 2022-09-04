@@ -27,3 +27,32 @@
     transition: 0.15s ease-in;
   }
 }
+
+@mixin float-up {
+  @keyframes float {
+    from {
+      position: relative;
+      top: 15px;
+      opacity: 0;
+    }
+    to {
+      top: -15px;
+      opacity: 1;
+    }
+  }
+
+  animation: float 1.2s;
+}
+
+@mixin fade-in {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  animation: fade-in 1s;
+}

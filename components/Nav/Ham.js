@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { useState, useCallback, useEffect, isValidElement } from "react";
+import { useState, useEffect } from "react";
 
 import Burger from "@animated-burgers/burger-squeeze";
 import "@animated-burgers/burger-squeeze/dist/styles.css";
@@ -28,6 +28,7 @@ export default function Ham() {
         onClick={() => {
           setHamOpen(!hamOpen);
         }}
+        className={styles.openButton}
       >
         <Burger isOpen={hamOpen} />
       </div>
@@ -38,40 +39,24 @@ export default function Ham() {
         }`}
       >
         <section className={styles.links}>
-          <div className={styles.homeLink}>
-            <Link href="/">
-              <a onClick={closeHamNav}>
-                <img
-                  src="/favicons/icon.png"
-                  className={styles.heroIcon}
-                  alt="Site Icon"
-                  draggable="false"
-                />
-                CubingSoda
-              </a>
-            </Link>
-          </div>
+          <Link href="/">
+            <a onClick={closeHamNav}>Home</a>
+          </Link>
 
-          <div className={styles.otherLinks}>
-            <Link href="/projects">
-              <a onClick={closeHamNav}>Projects</a>
-            </Link>
+          <Link href="/blog">
+            <a onClick={closeHamNav}>Blog</a>
+          </Link>
 
-            <Link href="/posts">
-              <a onClick={closeHamNav}>Posts</a>
-            </Link>
-
-            <a
-              onClick={closeHamNav}
-              href="https://github.com/CubingSoda/personal-website"
-              target="_blank"
-              rel="noreferrer"
-              className={styles.repoLink}
-            >
-              <img src="/img/icons/github.png" alt="Github Icon" />
-              <span>Source Code</span>
-            </a>
-          </div>
+          <a
+            onClick={closeHamNav}
+            href="https://github.com/CubingSoda/personal-website"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.repoLink}
+          >
+            <img src="/img/icons/github.png" alt="Github Icon" />
+            <span>Source Code</span>
+          </a>
         </section>
       </div>
     </div>

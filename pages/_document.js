@@ -5,17 +5,19 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          {/* Google Fonts */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
           <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="anonymous"
-          />
-
-          <link
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@82.7,800&family=Poppins&family=Roboto&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto:wght@400;600;700&display=swap"
             rel="stylesheet"
           />
+
+          {/* Font Awesome */}
+          <script
+            src="https://kit.fontawesome.com/3b71d7827d.js"
+            crossOrigin="anonymous"
+          ></script>
         </Head>
 
         <body>

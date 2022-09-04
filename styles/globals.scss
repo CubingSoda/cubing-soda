@@ -1,3 +1,5 @@
+@import "styles/mixins.scss";
+
 html,
 body {
   padding: 0;
@@ -40,20 +42,7 @@ a:hover {
   width: 30px;
 }
 
-.logo {
-  width: 35px;
-}
-
-.GitHub-logo {
-  @media (prefers-color-scheme: dark) {
-    filter: invert(100);
-  }
-}
-
-.Easy-Music-img {
-  width: 112px !important;
-}
-
+// burger
 .burger {
   margin: 0.6rem 0 0 1rem;
 }
@@ -66,4 +55,51 @@ a:hover {
 
 .burger.burger-squeeze.open .burger-lines {
   background-color: transparent !important;
+}
+
+// font awesome
+.fa-2xl {
+  line-height: normal !important;
+}
+
+// popup
+.popup-text {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 1.9rem;
+  flex-wrap: wrap;
+  width: 18rem;
+  background-color: hsl(212, 19%, 42%);
+  text-align: center;
+  border-radius: 14px;
+  padding: 22px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -144px;
+  height: 10rem;
+  box-shadow: 0px 0px 22px 19px rgba(0, 0, 0, 0.228);
+}
+
+.popup-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -13px;
+  border-width: 13px;
+  border-style: solid;
+  border-color: #576a80 transparent transparent transparent;
+}
+
+.show {
+  display: flex;
+}
+
+// BLOG
+
+img[alt="Velja"] {
+  width: 27rem !important;
 }

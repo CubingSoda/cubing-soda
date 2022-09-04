@@ -5,13 +5,11 @@
   gap: 0.8rem;
   margin-bottom: 1rem;
 }
-.postSearchIcon {
-  width: 2rem;
-}
+
 .postSearch {
   font-weight: 500;
   font-size: 1.5rem;
-  width: clamp(15rem, 43vw, 64rem);
+  width: min(43rem, 71vw);
   height: 3rem;
   border-radius: 0.4rem;
   border: none;

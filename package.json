@@ -1,6 +1,6 @@
 {
   "name": "personal-website",
-  "private": false,
+  "private": true,
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
@@ -10,10 +10,6 @@
   },
   "dependencies": {
     "@animated-burgers/burger-squeeze": "^1.1.2",
-    "@fortawesome/fontawesome-free": "^5.15.4",
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.1.16",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
     "markdown-to-html": "^0.0.13",

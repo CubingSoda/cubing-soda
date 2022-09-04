@@ -6,8 +6,10 @@
   align-items: center;
   margin-top: auto;
   color: white;
-  background-color: rgb(14, 44, 120);
-  padding: 10px;
+  background-color: #3f556d;
+  padding: 14px;
+  margin: 5rem 0.7rem 0.7rem 0.7rem;
+  border-radius: 11px;
 }
 
 .footer1 {
@@ -15,10 +17,10 @@
   justify-content: center;
   align-items: center;
   gap: 0.4rem;
-  margin-left: 0.3rem;
+  margin-left: 1rem;
 }
 .footer2 {
-  margin-right: 0.5rem;
+  margin-right: 1rem;
 }
 
 @media screen and (max-width: 350px) {

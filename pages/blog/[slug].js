@@ -1,10 +1,10 @@
 import UI from "components/UI";
 
-import { getPostBySlug, getAllPosts } from "lib/posts-api";
+import * as API from "lib/blog-api";
 import markdownToHtml from "lib/markdown-to-html";
 
 import Post from "components/Post";
-import styles from "styles/Posts.module.scss";
+import styles from "styles/Blog.module.scss";
 
 export default function SinglePost({ post }) {
   return (
@@ -17,7 +17,7 @@ export default function SinglePost({ post }) {
 }
 
 export async function getStaticProps({ params }) {
-  const post = getPostBySlug(params.slug, [
+  const post = API.getPostBySlug(params.slug, [
     "slug",
     "title",
     "desc",
@@ -38,7 +38,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(["slug"]);
+  const posts = API.getAllPosts(["slug"]);
 
   return {
     paths: posts.map((post) => {

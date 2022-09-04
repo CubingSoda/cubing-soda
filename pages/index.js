@@ -1,69 +1,131 @@
-import { v4 as uuidv4 } from "uuid";
-
 import UI from "components/UI";
+import MediaLink from "components/MediaLink";
 
-import projects from "lib/projects-list";
-import PersonalLink from "components/MediaLink";
+import { useState } from "react";
+import Link from "next/link";
 
 import styles from "styles/Home.module.scss";
 
 export default function Home() {
+  function open() {
+    setToggle(!toggle);
+    const popup = document.querySelector(".popup-text");
+    popup.classList.toggle("show");
+  }
+
+  const [toggle, setToggle] = useState(false);
+
   return (
     <UI>
       <main className={styles.main}>
-        <h1 className={styles.hello}>Hi, I am a Front-end Web Developer.</h1>
-        <div className={styles.cards}>
-          <div className={styles.card}>
-            <h1 className={styles.cardTitle}>Media</h1>
+        <img
+          src="/favicons/icon.png"
+          className={styles.heroIcon}
+          alt="Site Icon"
+          draggable="false"
+        />
 
-            <PersonalLink
-              name="GitHub"
-              img="/img/icons/github.png"
-              href="https://github.com/CubingSoda"
-            />
-            <PersonalLink
-              name="Reddit"
-              img="/img/icons/reddit.png"
-              href="https://www.reddit.com/user/CubingSoda/"
-            />
-            <PersonalLink
-              name="Discord"
-              img="/img/icons/discord.png"
-              href="https://discord.com/users/822191907286417450"
-            />
-          </div>
+        <div className={styles.card}>
+          <div>
+            <div className={styles.gradient}>
+              Hi, I am CubingSoda<span>.</span>
+            </div>
 
-          <div className={styles.card}>
-            <h1 className={styles.cardTitle}>About Me</h1>
+            <div className={styles.text}>
+              <section>
+                I am a programmer-student living in the United States. My skill
+                level with Python is intermediate, with experience in Selenium
+                and Tkinter. I also mastered front-end web development with
+                technologies like React, Next, NPM, and SCSS. I am also familiar
+                with source control software such as Git/GitHub.
+              </section>
 
-            <div className={styles.aboutMe}>
-              I am a programmer living in the United States. I have
-              intermediate-level Python skills, and pretty much mastered
-              front-end development using SCSS, React, and Next.
-              <br />
-              <br />I currently use Manjaro Linux, after having crashes in a
-              hackintosh I built a few months ago. Windows is also installed,
-              just in case I screw up something on Linux.
+              <section>
+                My current machine is the M2 MacBook Air, 8GB/512GB. I wrote an
+                article{" "}
+                <Link href="/blog/new-setup">
+                  <a>here</a>
+                </Link>{" "}
+                about my computer setup.
+              </section>
             </div>
           </div>
 
-          <div className={`${styles.card} ${styles.projectsCard}`}>
-            <h1 className={styles.cardTitle}>Projects</h1>
-            {projects.slice(0, 4).map((project) => {
-              return (
-                <a
-                  className={styles.projectLink}
-                  href={project.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  key={uuidv4()}
-                >
-                  <span className={styles.nameAndDate}>
-                    <span>{project.name}</span> - <span>{project.date}</span>
-                  </span>
-                </a>
-              );
-            })}
+          <div className={styles.link}>
+            <section className={styles.mobile} onClick={open}>
+              {toggle ? (
+                <i className="fa-solid fa-arrow-down fa-2xl"></i>
+              ) : (
+                <i className="fa-solid fa-arrow-up fa-2xl"></i>
+              )}
+              <span>{toggle ? <>Hide</> : <>Show</>} Social Profiles</span>
+
+              <div className="popup-text">
+                <MediaLink
+                  name="GitHub"
+                  img="/img/icons/github.png"
+                  href="https://github.com/CubingSoda"
+                />
+                <MediaLink
+                  name="Reddit"
+                  img="/img/icons/reddit.png"
+                  href="https://www.reddit.com/user/CubingSoda/"
+                />
+                <MediaLink
+                  name="Discord"
+                  img="/img/icons/discord.png"
+                  href="https://discord.com/users/822191907286417450"
+                />
+                <MediaLink
+                  name="Stackoverflow"
+                  img="/img/icons/stackoverflow.png"
+                  href="https://stackoverflow.com/users/17556679/cubingsoda"
+                />
+                <MediaLink
+                  name="10FastFingers"
+                  img="/img/icons/10fastfingers.png"
+                  href="https://10fastfingers.com/user/3212833/"
+                />
+                <MediaLink
+                  name="Replit"
+                  img="/img/icons/replit.png"
+                  href="https://replit.com/@cubingsoda"
+                />
+              </div>
+            </section>
+
+            <section className={styles.desktop}>
+              <MediaLink
+                name="GitHub"
+                img="/img/icons/github.png"
+                href="https://github.com/CubingSoda"
+              />
+              <MediaLink
+                name="Reddit"
+                img="/img/icons/reddit.png"
+                href="https://www.reddit.com/user/CubingSoda/"
+              />
+              <MediaLink
+                name="Discord"
+                img="/img/icons/discord.png"
+                href="https://discord.com/users/822191907286417450"
+              />
+              <MediaLink
+                name="Stackoverflow"
+                img="/img/icons/stackoverflow.png"
+                href="https://stackoverflow.com/users/17556679/cubingsoda"
+              />
+              <MediaLink
+                name="10FastFingers"
+                img="/img/icons/10fastfingers.png"
+                href="https://10fastfingers.com/user/3212833/"
+              />
+              <MediaLink
+                name="Replit"
+                img="/img/icons/replit.png"
+                href="https://replit.com/@cubingsoda"
+              />
+            </section>
           </div>
         </div>
       </main>
