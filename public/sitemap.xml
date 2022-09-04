@@ -4,22 +4,22 @@
       <loc>https://cubingsoda.pages.dev/</loc>
    </url>
    <url>
-      <loc>https://cubingsoda.pages.dev/projects</loc>
-   </url>
-   <url>
-      <loc>https://cubingsoda.pages.dev/posts</loc>
+      <loc>https://cubingsoda.pages.dev/blog</loc>
    </url>
    
    <url>
-      <loc>https://cubingsoda.pages.dev/posts/new-site</loc>
+      <loc>https://cubingsoda.pages.dev/blog/new-site</loc>
    </url>
    <url>
-      <loc>https://cubingsoda.pages.dev/posts/whats-next</loc>
+      <loc>https://cubingsoda.pages.dev/blog/whats-next</loc>
    </url>
    <url>
-      <loc>https://cubingsoda.pages.dev/posts/switched-to-manjaro</loc>
+      <loc>https://cubingsoda.pages.dev/blog/switched-to-manjaro</loc>
    </url>
    <url>
-      <loc>https://cubingsoda.pages.dev/posts/garuda-and-github-copilot</loc>
+      <loc>https://cubingsoda.pages.dev/blog/garuda-and-github-copilot</loc>
+   </url>   
+   <url>
+      <loc>https://cubingsoda.pages.dev/blog/new-setup</loc>
    </url>   
 </urlset>
