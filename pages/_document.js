@@ -7,17 +7,14 @@ class MyDocument extends Document {
         <Head>
           {/* Google Fonts */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto:wght@400;600;700&display=swap"
             rel="stylesheet"
           />
 
           {/* Font Awesome */}
-          <script
-            src="https://kit.fontawesome.com/3b71d7827d.js"
-            crossOrigin="anonymous"
-          ></script>
+          <script src="https://kit.fontawesome.com/3b71d7827d.js"></script>
         </Head>
 
         <body>

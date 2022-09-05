@@ -44,7 +44,14 @@ export default function Ham() {
           </Link>
 
           <Link href="/blog">
-            <a onClick={closeHamNav}>Blog</a>
+            <a
+              onClick={() => {
+                process.env.SET_INPUT("");
+                closeHamNav();
+              }}
+            >
+              Blog
+            </a>
           </Link>
 
           <a

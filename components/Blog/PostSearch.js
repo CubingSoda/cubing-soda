@@ -11,6 +11,8 @@ export default function PostSearch({
   input,
   setInput,
 }) {
+  process.env.SET_INPUT = setInput;
+
   const inputRef = useRef(null);
   let inputValueLower;
   let use = [];

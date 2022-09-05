@@ -10,10 +10,15 @@ export default function RegularNav() {
           <a>Home</a>
         </Link>
 
-        {/* <Link href="/blog">
-          <a>Blog</a>
-        </Link> */}
-        <a href="/blog">Blog</a>
+        <Link href="/blog">
+          <a
+            onClick={() => {
+              process.env.SET_INPUT("");
+            }}
+          >
+            Blog
+          </a>
+        </Link>
 
         <a
           href="https://github.com/CubingSoda/personal-website"
