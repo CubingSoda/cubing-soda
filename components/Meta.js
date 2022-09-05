@@ -26,7 +26,7 @@ export default function Meta({ page, desc, keywords }) {
         <meta name="keywords" content="cubingsoda, programming, coding" />
       )}
       <meta name="description" content={descText} />
-      <meta property="og:image" content="/favicons/icon.png" />
+      <meta property="og:image" content="/favicon.ico" />
       <meta property="og:title" content={titleText} />
       <meta property="og:description" content={descText} />
       <meta property="og:type" content="website" />
@@ -34,7 +34,7 @@ export default function Meta({ page, desc, keywords }) {
 
       <meta name="theme-color" content="#4a5b6e" />
 
-      <link rel="shortcut icon" href="/favicons/icon.png" type="image/x-icon" />
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
       <title>{titleText}</title>
     </Head>

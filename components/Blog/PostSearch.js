@@ -1,28 +1,34 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Router from "next/router";
 
 import styles from "styles/components/PostSearch.module.scss";
 
-export default function PostSearch({ input, posts, allTags, shown }) {
-  const inputBox = useRef(null);
-  const [val, setVal] = useState(input);
-
+export default function PostSearch({
+  posts,
+  allTags,
+  shown,
+  suggest,
+  input,
+  setInput,
+}) {
+  const inputRef = useRef(null);
   let inputValueLower;
   let use = [];
 
   function change(e) {
-    inputBox.current.focus();
-
     if (typeof e === "string") {
       inputValueLower = e;
-      inputBox.current.value = e;
+      setInput(e);
     } else {
-      inputValueLower = inputBox.current.value.toLowerCase();
+      inputValueLower = e.target.value.toLowerCase();
+      setInput(e.target.value);
     }
-    setVal(inputBox.current.value);
+
+    inputRef.current.focus();
 
     // With Tag prefix
     if (inputValueLower.startsWith("tag:")) {
+      suggest(true);
       const allTagsLower = allTags.map((item) => {
         return item.toLowerCase().replaceAll(" ", "");
       });
@@ -51,6 +57,8 @@ export default function PostSearch({ input, posts, allTags, shown }) {
 
       // without tag prefix
     } else {
+      suggest(false);
+
       posts.forEach((post) => {
         if (
           post.title.toLowerCase().includes(inputValueLower) ||
@@ -69,18 +77,19 @@ export default function PostSearch({ input, posts, allTags, shown }) {
 
   useEffect(() => {
     change(input);
-  }, []);
+  }, [input]);
 
   useEffect(() => {
     const { pathname } = Router;
+
     if (pathname == "/blog") {
-      if (val === "" || val === undefined) {
+      if (input === "" || input === undefined) {
         Router.push("/blog");
         return;
       }
-      Router.push(`/blog?input=${val}`);
+      Router.push(`/blog?input=${input}`);
     }
-  }, [val]);
+  }, [input]);
 
   return (
     <div className={styles.searchWrapper}>
@@ -93,9 +102,9 @@ export default function PostSearch({ input, posts, allTags, shown }) {
         name="post-search"
         className={styles.postSearch}
         onChange={change}
-        placeholder="Search (tag: for tags)"
-        ref={inputBox}
-        // value={val}
+        placeholder="Search..."
+        value={input}
+        ref={inputRef}
       />
     </div>
   );

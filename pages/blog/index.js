@@ -5,16 +5,19 @@ import { useRouter, Router } from "next/router";
 import UI from "components/UI";
 
 import { getAllPosts } from "lib/blog-api";
-import Post from "components/Post";
-import PostSearch from "components/PostSearch";
+import Post from "components/Blog/Post";
+import PostSearch from "components/Blog/PostSearch";
+import TagSuggestions from "components/Blog/TagSuggestions";
 
 import styles from "styles/Blog.module.scss";
 
 export default function SinglePost({ allPosts, allTags }) {
   const [ready, setReady] = useState(null);
-  const router = useRouter();
+  const [shouldISuggest, setShouldISuggest] = useState(false);
 
-  const { input } = router.query;
+  const router = useRouter();
+  const { x } = router.query;
+  const [input, setInput] = useState(x ? x : "");
 
   useEffect(() => {
     if (!router.isReady) return null;
@@ -30,11 +33,10 @@ export default function SinglePost({ allPosts, allTags }) {
   }
 
   return (
-    <UI page="Posts" keywords={["posts"]}>
+    <UI page="Blog" keywords={["blog"]}>
       {ready ? (
         <div className={styles.wrapper}>
           <PostSearch
-            input={input}
             posts={allPosts}
             allTags={[
               ...new Set(
@@ -46,6 +48,24 @@ export default function SinglePost({ allPosts, allTags }) {
               ),
             ]}
             shown={setShown}
+            suggest={setShouldISuggest}
+            input={input}
+            setInput={setInput}
+          />
+
+          <TagSuggestions
+            suggest={shouldISuggest}
+            allTags={[
+              ...new Set(
+                allTags
+                  .map((item) => {
+                    return Object.values(item).flat();
+                  })
+                  .flat()
+              ),
+            ]}
+            input={input}
+            setInput={setInput}
           />
 
           {shown.map((post) => {

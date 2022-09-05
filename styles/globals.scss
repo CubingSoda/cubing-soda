@@ -37,6 +37,16 @@ a:hover {
   transition: color 0.2s ease;
 }
 
+code {
+  font-family: "Fira Code", monospace;
+  background: hsl(206, 60%, 22%);
+  color: white;
+  border-radius: 7px;
+  padding: 3px 7px;
+  font-size: 0.85rem;
+  margin: 2px 3px;
+}
+
 // Logos
 .site-icon {
   width: 30px;
@@ -80,7 +90,7 @@ a:hover {
   left: 50%;
   margin-left: -144px;
   height: 10rem;
-  box-shadow: 0px 0px 22px 19px rgba(0, 0, 0, 0.228);
+  box-shadow: 0px 0px 22px 19px rgba(0, 0, 0, 0.1);
 }
 
 .popup-text::after {

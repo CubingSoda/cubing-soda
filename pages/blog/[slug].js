@@ -3,7 +3,7 @@ import UI from "components/UI";
 import * as API from "lib/blog-api";
 import markdownToHtml from "lib/markdown-to-html";
 
-import Post from "components/Post";
+import Post from "components/Blog/Post";
 import styles from "styles/Blog.module.scss";
 
 export default function SinglePost({ post }) {
