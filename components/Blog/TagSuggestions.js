@@ -2,13 +2,11 @@ import { v4 as uuidv4 } from "uuid";
 
 import styles from "styles/Blog.module.scss";
 
-export default function TagSuggestions({ suggest, allTags, input, setInput }) {
+export default function TagSuggestions({ suggest, allTags }) {
+  const change = process.env.CHANGE;
+
   function click(tag) {
-    if (input === "tag: ") {
-      setInput(`tag: ${tag}`);
-    } else {
-      setInput(`${input}, ${tag}`);
-    }
+    change(`tag: ${tag}`);
   }
 
   return (
@@ -34,7 +32,7 @@ export default function TagSuggestions({ suggest, allTags, input, setInput }) {
           Use{" "}
           <code
             onClick={() => {
-              setInput("tag: ");
+              change("tag: ");
             }}
           >
             tag:

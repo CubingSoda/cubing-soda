@@ -13,7 +13,7 @@ export default function RegularNav() {
         <Link href="/blog">
           <a
             onClick={() => {
-              process.env.SET_INPUT("");
+              process.env.CHANGE("");
             }}
           >
             Blog

@@ -14,10 +14,9 @@ import styles from "styles/Blog.module.scss";
 export default function SinglePost({ allPosts, allTags }) {
   const [ready, setReady] = useState(null);
   const [shouldISuggest, setShouldISuggest] = useState(false);
+  const [shown, setShown] = useState(allPosts);
 
   const router = useRouter();
-  const { x } = router.query;
-  const [input, setInput] = useState(x ? x : "");
 
   useEffect(() => {
     if (!router.isReady) return null;
@@ -25,8 +24,6 @@ export default function SinglePost({ allPosts, allTags }) {
       setReady(true);
     }
   }, [router.isReady]);
-
-  const [shown, setShown] = useState(allPosts);
 
   if (ready === null) {
     return null;
@@ -49,8 +46,6 @@ export default function SinglePost({ allPosts, allTags }) {
             ]}
             shown={setShown}
             suggest={setShouldISuggest}
-            input={input}
-            setInput={setInput}
           />
 
           <TagSuggestions
@@ -64,8 +59,6 @@ export default function SinglePost({ allPosts, allTags }) {
                   .flat()
               ),
             ]}
-            input={input}
-            setInput={setInput}
           />
 
           {shown.map((post) => {

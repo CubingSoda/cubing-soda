@@ -3,28 +3,43 @@ import Router from "next/router";
 
 import styles from "styles/components/PostSearch.module.scss";
 
-export default function PostSearch({
-  posts,
-  allTags,
-  shown,
-  suggest,
-  input,
-  setInput,
-}) {
-  process.env.SET_INPUT = setInput;
-
+export default function PostSearch({ posts, allTags, shown, suggest }) {
   const inputRef = useRef(null);
-  let inputValueLower;
-  let use = [];
 
-  function change(e) {
-    if (typeof e === "string") {
-      inputValueLower = e;
-      setInput(e);
-    } else {
-      inputValueLower = e.target.value.toLowerCase();
-      setInput(e.target.value);
+  // if ?input=something, then change input value
+  // else clear input value and go to /blog
+  useEffect(() => {
+    inputRef.current.focus();
+
+    const { query } = Router;
+
+    if (!query.input || query.input === "") {
+      Router.push("/blog");
+      return;
     }
+
+    change(query.input);
+  }, []);
+
+  // When input changes, change shown posts
+  function change(e) {
+    let val;
+    let use = [];
+
+    if (typeof e === "string") {
+      val = e;
+    } else {
+      val = e.target.value;
+    }
+
+    if (val === "") {
+      Router.push("/blog");
+    } else {
+      Router.push(`/blog?input=${val}`);
+    }
+
+    inputRef.current.value = val;
+    const inputValueLower = val.toLowerCase();
 
     inputRef.current.focus();
 
@@ -77,21 +92,7 @@ export default function PostSearch({
     use = [];
   }
 
-  useEffect(() => {
-    change(input);
-  }, [input]);
-
-  useEffect(() => {
-    const { pathname } = Router;
-
-    if (pathname == "/blog") {
-      if (input === "" || input === undefined) {
-        Router.push("/blog");
-        return;
-      }
-      Router.push(`/blog?input=${input}`);
-    }
-  }, [input]);
+  process.env.CHANGE = change;
 
   return (
     <div className={styles.searchWrapper}>
@@ -102,10 +103,9 @@ export default function PostSearch({
       <input
         type="text"
         name="post-search"
+        placeholder="Search..."
         className={styles.postSearch}
         onChange={change}
-        placeholder="Search..."
-        value={input}
         ref={inputRef}
       />
     </div>
