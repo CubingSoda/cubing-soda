@@ -11,7 +11,21 @@ import TagSuggestions from "components/Blog/TagSuggestions";
 
 import styles from "styles/Blog.module.scss";
 
-export default function SinglePost({ allPosts, allTags }) {
+interface PostProps {
+  allPosts: [
+    {
+      slug: string;
+      title: string;
+      desc: string;
+      date: string;
+      tags: string[];
+      content: string;
+    }
+  ];
+  allTags: string[];
+}
+
+const SinglePost = ({ allPosts, allTags }) => {
   const [ready, setReady] = useState(null);
   const [suggest, setSuggest] = useState(false);
   const [shown, setShown] = useState(allPosts);
@@ -29,37 +43,26 @@ export default function SinglePost({ allPosts, allTags }) {
     return null;
   }
 
+  let allTagsList = allTags
+    .map((item) => {
+      return Object.values(item).flat();
+    })
+    .flat();
+
+  allTagsList = [...new Set(allTagsList)];
+
   return (
     <UI page="Blog" keywords={["blog"]}>
       {ready ? (
         <div className={styles.wrapper}>
           <PostSearch
             posts={allPosts}
-            allTags={[
-              ...new Set(
-                allTags
-                  .map((item) => {
-                    return Object.values(item).flat();
-                  })
-                  .flat()
-              ),
-            ]}
+            allTags={allTagsList}
             shown={setShown}
             suggest={setSuggest}
           />
 
-          <TagSuggestions
-            suggest={suggest}
-            allTags={[
-              ...new Set(
-                allTags
-                  .map((item) => {
-                    return Object.values(item).flat();
-                  })
-                  .flat()
-              ),
-            ]}
-          />
+          <TagSuggestions suggest={suggest} allTags={allTagsList} />
 
           {shown.map((post) => {
             return <Post postData={post} key={uuidv4()} />;
@@ -68,7 +71,9 @@ export default function SinglePost({ allPosts, allTags }) {
       ) : null}
     </UI>
   );
-}
+};
+
+export default SinglePost;
 
 export async function getStaticProps() {
   const allPosts = getAllPosts([

@@ -1,9 +1,22 @@
+import React from "react";
 import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
 
 import styles from "styles/Blog.module.scss";
 
-export default function Post({ postData, content }) {
+interface PostProps {
+  postData: {
+    slug: string;
+    title: string;
+    desc: string;
+    date: string;
+    tags: string[];
+    content: string;
+  };
+  content?: boolean;
+}
+
+const Post: React.FC<PostProps> = ({ postData, content }) => {
   return (
     <>
       <section className={styles.post} key={uuidv4()}>
@@ -36,4 +49,6 @@ export default function Post({ postData, content }) {
       </section>
     </>
   );
-}
+};
+
+export default Post;

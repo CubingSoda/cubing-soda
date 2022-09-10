@@ -1,13 +1,20 @@
+import React from "react";
 import Head from "next/head";
 
-export default function Meta({ page, desc, keywords }) {
+interface MetaProps {
+  page: string;
+  desc: string;
+  keywords: string[];
+}
+
+const Meta: React.FC<MetaProps> = ({ page, desc, keywords }) => {
   let titleText;
   titleText = page ? `${page} | CubingSoda` : `CubingSoda`;
 
   let descText;
   descText = desc
     ? desc
-    : "I showcase my projects and make posts every once in awhile. Reddit, Discord, and GitHub links are at the homepage.";
+    : "I showcase my projects and make posts every once in awhile. Reddit, Discord, and GitHub links are on the homepage.";
 
   return (
     <Head>
@@ -39,4 +46,6 @@ export default function Meta({ page, desc, keywords }) {
       <title>{titleText}</title>
     </Head>
   );
-}
+};
+
+export default Meta;

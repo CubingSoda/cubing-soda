@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import styles from "styles/Home.module.scss";
 
-export default function Home() {
+const Home = () => {
   function open() {
     setToggle(!toggle);
     const popup = document.querySelector(".popup-text");
@@ -131,4 +131,6 @@ export default function Home() {
       </main>
     </UI>
   );
-}
+};
+
+export default Home;

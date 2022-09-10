@@ -2,7 +2,7 @@ import styles from "styles/components/NavBar.module.scss";
 
 import Link from "next/link";
 
-export default function RegularNav() {
+const RegularNav = () => {
   return (
     <div className={styles.regular}>
       <section className={styles.links}>
@@ -32,4 +32,6 @@ export default function RegularNav() {
       </section>
     </div>
   );
-}
+};
+
+export default RegularNav;

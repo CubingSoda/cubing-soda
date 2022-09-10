@@ -3,7 +3,26 @@ import Router from "next/router";
 
 import styles from "styles/components/PostSearch.module.scss";
 
-export default function PostSearch({ posts, allTags, shown, suggest }) {
+interface PostSearchProps {
+  posts: {
+    slug?: string;
+    title?: string;
+    desc?: string;
+    date?: string;
+    tags?: string[];
+    content?: string;
+  }[];
+  allTags: string[];
+  shown: (list) => void;
+  suggest: (list) => void;
+}
+
+const PostSearch: React.FC<PostSearchProps> = ({
+  posts,
+  allTags,
+  shown,
+  suggest,
+}) => {
   const searchRef = useRef(null);
 
   // if ?input=something, then change input value
@@ -98,7 +117,7 @@ export default function PostSearch({ posts, allTags, shown, suggest }) {
   return (
     <div className={styles.searchWrapper}>
       <label htmlFor="post-search">
-        <i className="fa-solid fa-magnifying-glass fa-2xl" size="4x"></i>
+        <i className="fa-solid fa-magnifying-glass fa-2xl" data-size="4x"></i>
       </label>
 
       <input
@@ -111,4 +130,6 @@ export default function PostSearch({ posts, allTags, shown, suggest }) {
       />
     </div>
   );
-}
+};
+
+export default PostSearch;

@@ -7,7 +7,7 @@ import "@animated-burgers/burger-squeeze/dist/styles.css";
 
 import styles from "styles/components/NavBar.module.scss";
 
-export default function Ham() {
+const Ham = () => {
   const [hamOpen, setHamOpen] = useState(false);
 
   function closeHamNav() {
@@ -68,4 +68,6 @@ export default function Ham() {
       </div>
     </div>
   );
-}
+};
+
+export default Ham;

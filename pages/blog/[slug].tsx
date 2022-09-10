@@ -1,12 +1,24 @@
+import React from "react";
 import UI from "components/UI";
 
 import * as API from "lib/blog-api";
-import markdownToHtml from "lib/markdown-to-html";
+import markdownToHtml from "lib/md-to-html";
 
 import Post from "components/Blog/Post";
 import styles from "styles/Blog.module.scss";
 
-export default function SinglePost({ post }) {
+interface PostProps {
+  post: {
+    slug: string;
+    title: string;
+    desc: string;
+    date: string;
+    tags: string[];
+    content: string;
+  };
+}
+
+const SinglePost: React.FC<PostProps> = ({ post }) => {
   return (
     <UI page={post.title} desc={post.desc} keywords={post.tags}>
       <div className={styles.wrapper}>
@@ -14,7 +26,9 @@ export default function SinglePost({ post }) {
       </div>
     </UI>
   );
-}
+};
+
+export default SinglePost;
 
 export async function getStaticProps({ params }) {
   const post = API.getPostBySlug(params.slug, [
