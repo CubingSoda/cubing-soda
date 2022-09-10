@@ -4,21 +4,21 @@ import Router from "next/router";
 import styles from "styles/components/PostSearch.module.scss";
 
 export default function PostSearch({ posts, allTags, shown, suggest }) {
-  const inputRef = useRef(null);
+  const searchRef = useRef(null);
 
   // if ?input=something, then change input value
   // else clear input value and go to /blog
   useEffect(() => {
-    inputRef.current.focus();
+    searchRef.current.focus();
 
     const { query } = Router;
 
-    if (!query.input || query.input === "") {
+    if (!query.search || query.search === "") {
       Router.push("/blog");
       return;
     }
 
-    change(query.input);
+    change(query.search);
   }, []);
 
   // When input changes, change shown posts
@@ -35,11 +35,11 @@ export default function PostSearch({ posts, allTags, shown, suggest }) {
     if (val === "") {
       Router.push("/blog");
     } else {
-      Router.push(`/blog?input=${val}`);
+      Router.push(`/blog?search=${val}`);
     }
 
-    inputRef.current.value = val;
-    inputRef.current.focus();
+    searchRef.current.value = val;
+    searchRef.current.focus();
     val = val.toLowerCase();
 
     // With Tag prefix
@@ -93,7 +93,7 @@ export default function PostSearch({ posts, allTags, shown, suggest }) {
   }
 
   process.env.CHANGE = change;
-  process.env.VAL = inputRef.current ? inputRef.current.value : "";
+  process.env.VAL = searchRef.current ? searchRef.current.value : "";
 
   return (
     <div className={styles.searchWrapper}>
@@ -107,7 +107,7 @@ export default function PostSearch({ posts, allTags, shown, suggest }) {
         placeholder="Search..."
         className={styles.postSearch}
         onChange={change}
-        ref={inputRef}
+        ref={searchRef}
       />
     </div>
   );
