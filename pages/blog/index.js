@@ -13,7 +13,7 @@ import styles from "styles/Blog.module.scss";
 
 export default function SinglePost({ allPosts, allTags }) {
   const [ready, setReady] = useState(null);
-  const [shouldISuggest, setShouldISuggest] = useState(false);
+  const [suggest, setSuggest] = useState(false);
   const [shown, setShown] = useState(allPosts);
 
   const router = useRouter();
@@ -45,11 +45,11 @@ export default function SinglePost({ allPosts, allTags }) {
               ),
             ]}
             shown={setShown}
-            suggest={setShouldISuggest}
+            suggest={setSuggest}
           />
 
           <TagSuggestions
-            suggest={shouldISuggest}
+            suggest={suggest}
             allTags={[
               ...new Set(
                 allTags

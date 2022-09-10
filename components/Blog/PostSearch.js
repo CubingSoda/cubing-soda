@@ -39,28 +39,29 @@ export default function PostSearch({ posts, allTags, shown, suggest }) {
     }
 
     inputRef.current.value = val;
-    const inputValueLower = val.toLowerCase();
-
     inputRef.current.focus();
+    val = val.toLowerCase();
 
     // With Tag prefix
-    if (inputValueLower.startsWith("tag:")) {
+    if (val.startsWith("tag:")) {
       suggest(true);
+
       const allTagsLower = allTags.map((item) => {
         return item.toLowerCase().replaceAll(" ", "");
       });
 
-      let typedTags = inputValueLower.slice(4).split(",");
-      typedTags = typedTags.map((tag) => {
-        return tag.toLowerCase().replaceAll(" ", "");
-      });
-
       let validTags = [];
-      typedTags.forEach((tag) => {
-        if (allTagsLower.includes(tag)) {
-          validTags.push(tag);
-        }
-      });
+      val
+        .slice(4)
+        .split(",")
+        .map((tag) => {
+          return tag.toLowerCase().replaceAll(" ", "");
+        })
+        .forEach((tag) => {
+          if (allTagsLower.includes(tag)) {
+            validTags.push(tag);
+          }
+        });
 
       validTags.forEach((validTag) => {
         posts.forEach((post) => {
@@ -78,10 +79,10 @@ export default function PostSearch({ posts, allTags, shown, suggest }) {
 
       posts.forEach((post) => {
         if (
-          post.title.toLowerCase().includes(inputValueLower) ||
-          post.date.toLowerCase().includes(inputValueLower) ||
-          post.desc.toLowerCase().includes(inputValueLower) ||
-          post.content.toLowerCase().includes(inputValueLower)
+          post.title.toLowerCase().includes(val) ||
+          post.date.toLowerCase().includes(val) ||
+          post.desc.toLowerCase().includes(val) ||
+          post.content.toLowerCase().includes(val)
         ) {
           use.push(post);
         }
@@ -89,10 +90,10 @@ export default function PostSearch({ posts, allTags, shown, suggest }) {
     }
 
     shown([...new Set(use)]); // remove duplicates
-    use = [];
   }
 
   process.env.CHANGE = change;
+  process.env.VAL = inputRef.current ? inputRef.current.value : "";
 
   return (
     <div className={styles.searchWrapper}>

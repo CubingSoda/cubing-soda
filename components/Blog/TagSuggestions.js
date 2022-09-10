@@ -4,9 +4,17 @@ import styles from "styles/Blog.module.scss";
 
 export default function TagSuggestions({ suggest, allTags }) {
   const change = process.env.CHANGE;
+  const val = process.env.VAL;
 
   function click(tag) {
-    change(`tag: ${tag}`);
+    if (val.replaceAll(" ", "") === "tag:") {
+      change(`tag: ${tag}`);
+      return;
+    }
+
+    if (!val.includes(tag)) {
+      change(`${val}, ${tag}`);
+    }
   }
 
   return (
