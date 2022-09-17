@@ -14,10 +14,6 @@ body.active {
 }
 
 #app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-
   color: var(--text-color);
   background-color: var(--bg-color);
 }
@@ -31,10 +27,11 @@ a {
   text-decoration: none;
   color: var(--link-color);
   transition: color 0.2s ease;
-}
-a:hover {
-  color: var(--link-hover-color);
-  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--link-hover-color);
+    transition: color 0.2s ease;
+  }
 }
 
 code {

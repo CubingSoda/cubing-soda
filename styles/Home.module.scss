@@ -71,12 +71,12 @@
 .logo {
   width: 2.5rem;
   transition: 0.15s ease-in;
-}
 
-.logo:hover {
-  box-shadow: rgba(31, 35, 65, 0.37) 0px 20px 30px -11px;
-  transform: translate(0px, -5px);
-  transition: 0.1s ease-in;
+  &:hover {
+    box-shadow: rgba(31, 35, 65, 0.37) 0px 20px 30px -11px;
+    transform: translate(0px, -5px);
+    transition: 0.1s ease-in;
+  }
 }
 
 .desktop {

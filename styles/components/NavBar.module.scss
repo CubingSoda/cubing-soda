@@ -29,19 +29,20 @@
   color: #fff !important;
   padding: 0.4rem 1rem;
   transition: 0.3s ease-in;
-}
-.repoLink:hover {
-  background-color: transparent;
-  border: 1px solid #0088ff;
-  transition: 0.5s ease-in;
-}
-.repoLink:hover span {
-  color: #00abff;
-  transition: 0.3s ease-in;
-}
 
-.repoLink img {
-  width: 30px;
+  &:hover {
+    background-color: transparent;
+    border: 1px solid #0088ff;
+    transition: 0.5s ease-in;
+  }
+
+  &:hover span {
+    color: #00abff;
+    transition: 0.3s ease-in;
+  }
+  & img {
+    width: 30px;
+  }
 }
 
 .heroIcon {
