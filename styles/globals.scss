@@ -69,6 +69,10 @@ code {
   line-height: normal !important;
 }
 
+.fa-magnifying-glass {
+  color: var(--second-text-color);
+}
+
 // popup
 .popup-text {
   display: none;
@@ -77,7 +81,7 @@ code {
   gap: 1.9rem;
   flex-wrap: wrap;
   width: 18rem;
-  background-color: hsl(212, 19%, 42%);
+  background: #c9d0d0;
   text-align: center;
   border-radius: 14px;
   padding: 22px 0;
@@ -86,8 +90,12 @@ code {
   bottom: 125%;
   left: 50%;
   margin-left: -144px;
-  height: 10rem;
+  height: 11rem;
   box-shadow: 0px 0px 22px 19px rgba(0, 0, 0, 0.1);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: hsl(212, 19%, 42%);
+  }
 }
 
 .popup-text::after {
@@ -98,7 +106,11 @@ code {
   margin-left: -13px;
   border-width: 13px;
   border-style: solid;
-  border-color: #576a80 transparent transparent transparent;
+  border-color: #c9d0d0 transparent transparent transparent;
+
+  @media (prefers-color-scheme: dark) {
+    border-color: #576a80 transparent transparent transparent;
+  }
 }
 
 .show {

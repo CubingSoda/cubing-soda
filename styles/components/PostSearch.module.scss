@@ -14,8 +14,12 @@
   border-radius: 0.4rem;
   border: none;
   padding: 0 0.4rem 0 0.4rem;
-  border: 4px solid var(--text-color);
+  border: 4px solid var(--second-text-color);
   padding: 0 0.4rem 0 0.4rem;
   outline: none;
   transition: 0.2s;
+
+  @media (prefers-color-scheme: dark) {
+    border-color: var(--text-color);
+  }
 }

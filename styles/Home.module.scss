@@ -17,6 +17,11 @@
 .heroIcon {
   width: min(20rem, 47vw);
   @include float-up;
+
+  @media (prefers-color-scheme: light) {
+    box-shadow: 0px 0px 12px 10px rgba(242, 242, 242, 0.68);
+    border-radius: 1.3rem;
+  }
 }
 
 .card {
@@ -69,13 +74,19 @@
 }
 
 .logo {
-  width: 2.5rem;
+  width: 3.2rem;
   transition: 0.15s ease-in;
+  padding: 4px;
+  border-radius: 0.5rem;
 
   &:hover {
     box-shadow: rgba(31, 35, 65, 0.37) 0px 20px 30px -11px;
     transform: translate(0px, -5px);
     transition: 0.1s ease-in;
+  }
+
+  @media (prefers-color-scheme: light) {
+    border: 1px;
   }
 }
 
@@ -86,6 +97,8 @@
 }
 
 .mobile {
+  color: var(--second-text-color);
+  background: var(--bg-color);
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -97,7 +110,7 @@
   margin: 0 auto 3rem auto;
   padding: 0.6rem 2rem;
   border-radius: 11px;
-  background: #506377;
+  // background: #506377;
 
   position: relative;
   cursor: pointer;

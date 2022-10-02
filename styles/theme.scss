@@ -1,22 +1,23 @@
 :root {
   // Light Mode
-  --bg-color: hsl(0, 0%, 100%);
+  --bg-color: hsla(186, 82%, 63%, 0.071);
   --second-bg-color: hsl(0deg 0% 85%);
 
   --text-color: hsl(0, 0%, 0%);
   --text-hover-color: hsl(0, 0%, 30%);
-  --second-text-color: hsl(0, 0%, 31%);
+  --second-text-color: hsl(0, 0%, 41%);
   --second-text-hover-color: hsl(0, 0%, 51%);
 
   --link-color: hsl(205, 100%, 50%);
   --link-hover-color: hsl(209, 95%, 70%);
 
-  --card-styles: 0px 0px 12px 10px #e6e6e6db;
+  --card-styles: 0px 0px 12px 10px hsl(0, 0%, 100%);
+  --footer-bg: hsla(186, 82%, 63%, 0.071);
 
   // Dark Mode
   @media (prefers-color-scheme: dark) {
     --bg-color: hsl(212, 20%, 36%);
-    --second-bg-color: #212121;
+    --second-bg-color: hsl(0, 0%, 13%);
 
     --text-color: hsl(0, 0%, 100%);
     --text-hover-color: hsl(0, 0%, 70%);
@@ -25,6 +26,7 @@
 
     --link-color: hsl(200, 100%, 50%);
 
-    --card-styles: 0px 0px 12px 10px #7e7e7e15;
+    --card-styles: 0px 0px 12px 10px hsla(0, 0%, 49%, 0.082);
+    --footer-bg: hsl(211, 27%, 34%);
   }
 }
