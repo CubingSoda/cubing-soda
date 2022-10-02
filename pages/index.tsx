@@ -19,7 +19,7 @@ const Home = () => {
     <UI>
       <main className={styles.main}>
         <img
-          src="/favicons/icon.png"
+          src="/img/icons/site.png"
           className={styles.heroIcon}
           alt="Site Icon"
           draggable="false"

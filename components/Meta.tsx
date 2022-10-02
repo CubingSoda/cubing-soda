@@ -39,9 +39,7 @@ const Meta: React.FC<MetaProps> = ({ page, desc, keywords }) => {
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://cubingsoda.pages.dev" />
 
-      <meta name="theme-color" content="#4a5b6e" />
-
-      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
       <title>{titleText}</title>
     </Head>
