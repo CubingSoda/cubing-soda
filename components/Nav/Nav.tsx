@@ -1,8 +1,13 @@
+import { useContext } from "react";
+import { AppContext } from "components/AppProvider";
+
 import styles from "styles/components/NavBar.module.scss";
 
 import Link from "next/link";
 
 const RegularNav = () => {
+  const app = useContext(AppContext);
+
   return (
     <div className={styles.regular}>
       <section className={styles.links}>
@@ -13,7 +18,7 @@ const RegularNav = () => {
         <Link href="/blog">
           <a
             onClick={() => {
-              process.env.CHANGE("");
+              app.searchBox("");
             }}
           >
             Blog

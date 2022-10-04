@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { AppContext } from "components/AppProvider";
+
 import Link from "next/link";
 
 import { useState, useEffect } from "react";
@@ -8,6 +11,8 @@ import "@animated-burgers/burger-squeeze/dist/styles.css";
 import styles from "styles/components/NavBar.module.scss";
 
 const Ham = () => {
+  const app = useContext(AppContext);
+
   const [hamOpen, setHamOpen] = useState(false);
 
   function closeHamNav() {
@@ -46,7 +51,7 @@ const Ham = () => {
           <Link href="/blog">
             <a
               onClick={() => {
-                process.env.CHANGE("");
+                app.searchBox("");
                 closeHamNav();
               }}
             >

@@ -16,7 +16,7 @@ const Home = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <UI>
+    <UI page="Home">
       <main className={styles.main}>
         <img
           src="/img/icons/site.png"
@@ -33,11 +33,11 @@ const Home = () => {
 
             <div className={styles.text}>
               <section>
-                I am a programmer-student living in the United States. My skill
-                level with Python is intermediate, with experience in Selenium
-                and Tkinter. I also mastered front-end web development with
-                technologies like React, Next, NPM, and SCSS. I am also familiar
-                with source control software such as Git/GitHub.
+                I am a programmer-student living in the United States. I have
+                intermediate Python skills, with experience in libraries such as
+                Selenium and Tkinter. I also mastered front-end web development
+                with technologies like React, Next, NPM, and SCSS. I am also
+                familiar with version control software such as Git/GitHub.
               </section>
 
               <section>

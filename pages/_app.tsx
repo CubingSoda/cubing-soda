@@ -1,4 +1,4 @@
-import React from "react";
+import AppProvider from "components/AppProvider";
 import Script from "next/script";
 
 import "styles/theme.scss";
@@ -11,12 +11,14 @@ interface AppProps {
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <div id="app">
-      {/* Font Awesome */}
-      <Script src="https://kit.fontawesome.com/3b71d7827d.js"></Script>
+    <AppProvider>
+      <div id="app">
+        {/* Font Awesome */}
+        <Script src="https://kit.fontawesome.com/3b71d7827d.js"></Script>
 
-      <Component {...pageProps} />
-    </div>
+        <Component {...pageProps} />
+      </div>
+    </AppProvider>
   );
 };
 

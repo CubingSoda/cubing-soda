@@ -1,27 +1,28 @@
+import { useContext } from "react";
+import { AppContext } from "components/AppProvider";
 import { v4 as uuidv4 } from "uuid";
 
 import styles from "styles/Blog.module.scss";
 
-export default function TagSuggestions({ suggest, allTags }) {
-  const change = process.env.CHANGE;
-  const val = process.env.VAL;
-
+export default function TagSuggestions() {
   function click(tag) {
-    if (val.replaceAll(" ", "") === "tag:") {
-      change(`tag: ${tag}`);
+    if (app.searchRef.current.value.replaceAll(" ", "") === "tag:") {
+      app.searchBox(`tag: ${tag}`);
       return;
     }
 
-    if (!val.includes(tag)) {
-      change(`${val}, ${tag}`);
+    if (!app.searchRef.current.value.includes(tag)) {
+      app.searchBox(`${app.searchRef.current.value}, ${tag}`);
     }
   }
 
+  const app = useContext(AppContext);
+
   return (
     <div>
-      {suggest ? (
+      {app.suggestTags ? (
         <div className={`${styles.tagSuggestions} ${styles.tags}`}>
-          {allTags.map((tag) => {
+          {app.allTags.map((tag) => {
             return (
               <span
                 className={styles.tag}
@@ -36,11 +37,12 @@ export default function TagSuggestions({ suggest, allTags }) {
           })}
         </div>
       ) : (
+        // <>dfdf</>
         <div className={styles.tagHint}>
           Use{" "}
           <code
             onClick={() => {
-              change("tag: ");
+              app.searchBox("tag: ");
             }}
           >
             tag:
