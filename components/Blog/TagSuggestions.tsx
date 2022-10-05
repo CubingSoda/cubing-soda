@@ -29,6 +29,7 @@ export default function TagSuggestions() {
                 className={`${styles.tag} ${tag
                   .toLowerCase()
                   .replaceAll(" ", "")}
+          
                   ${
                     app.selectedTags.includes(
                       tag.toLowerCase().replaceAll(" ", "")

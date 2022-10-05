@@ -55,10 +55,12 @@ const Post: React.FC<PostProps> = ({ postData, content }) => {
             return (
               <span
                 className={`${styles.tag} ${
-                  app.selectedTags.includes(
-                    tag.toLowerCase().replaceAll(" ", "")
-                  )
-                    ? styles.tagSelected
+                  tag
+                    ? app.selectedTags.includes(
+                        tag.toLowerCase().replaceAll(" ", "")
+                      )
+                      ? styles.tagSelected
+                      : ""
                     : ""
                 }`}
                 key={uuidv4()}
