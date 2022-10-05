@@ -2,6 +2,9 @@ import React from "react";
 import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
 
+import { useContext } from "react";
+import { AppContext } from "components/AppProvider";
+
 import styles from "styles/Blog.module.scss";
 
 interface PostProps {
@@ -17,6 +20,27 @@ interface PostProps {
 }
 
 const Post: React.FC<PostProps> = ({ postData, content }) => {
+  function click(tag) {
+    // already selected -> unselect
+    if (app.selectedTags.includes(tag.toLowerCase().replaceAll(" ", ""))) {
+      app.selectedTags;
+      return;
+    }
+    if (
+      app.searchBox.replaceAll(" ", "") === "" ||
+      app.searchBox.toLowerCase().replaceAll(" ", "") === "tag:"
+    ) {
+      app.setSearchBox(`tag: ${tag}`);
+      return;
+    }
+
+    if (!app.searchBox.includes(tag)) {
+      app.setSearchBox(`${app.searchBox}, ${tag}`);
+    }
+  }
+
+  const app = useContext(AppContext);
+
   return (
     <>
       <section className={styles.post} key={uuidv4()}>
@@ -25,7 +49,19 @@ const Post: React.FC<PostProps> = ({ postData, content }) => {
         <div className={styles.tags}>
           {postData.tags.map((tag) => {
             return (
-              <span className={styles.tag} key={uuidv4()}>
+              <span
+                className={`${styles.tag} ${
+                  app.selectedTags.includes(
+                    tag.toLowerCase().replaceAll(" ", "")
+                  )
+                    ? styles.tagSelected
+                    : ""
+                }`}
+                key={uuidv4()}
+                onClick={() => {
+                  click(tag);
+                }}
+              >
                 {tag}
               </span>
             );

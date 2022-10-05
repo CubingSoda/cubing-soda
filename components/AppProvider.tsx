@@ -3,8 +3,8 @@ import Router from "next/router";
 
 // INTERFACE
 interface AppContextType {
-  allPosts: any;
-  setAllPosts: (e) => void;
+  allPosts: object[];
+  setAllPosts: (e: object[]) => void;
 
   allTags: any;
   setAllTags: (e) => void;
@@ -23,6 +23,9 @@ interface AppContextType {
 
   query: string;
   setQuery: (e: string | string[]) => void;
+
+  selectedTags: string[];
+  setSelectedTags: (e: string[]) => void;
 }
 
 // APP CONTEXT
@@ -38,6 +41,7 @@ export default function AppProvider({ children }: { children: ReactNode }) {
   const [shown, setShown] = useState(allPosts);
   const [query, setQuery] = useState(null);
   const [searchBox, setSearchBoxState] = useState("");
+  const [selectedTags, setSelectedTags] = useState([]);
 
   function getPostsByText(val) {
     setSuggestTags(false);
@@ -89,7 +93,7 @@ export default function AppProvider({ children }: { children: ReactNode }) {
       });
     });
 
-    return [...new Set(use)];
+    return [[...new Set(use)], validTags];
   }
 
   // if x, sets searchbox val to x
@@ -107,8 +111,10 @@ export default function AppProvider({ children }: { children: ReactNode }) {
 
     // with tag prefix (tag:)
     if (valLower.startsWith("tag:")) {
-      setShown(getPostsByTag(valLower));
+      setSelectedTags(getPostsByTag(valLower)[1]);
+      setShown(getPostsByTag(valLower)[0]);
     } else {
+      setSelectedTags([]);
       setShown(getPostsByText(valLower));
     }
 
@@ -144,6 +150,9 @@ export default function AppProvider({ children }: { children: ReactNode }) {
 
         query,
         setQuery,
+
+        selectedTags,
+        setSelectedTags,
       }}
     >
       {children}

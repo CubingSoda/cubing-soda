@@ -1,18 +1,19 @@
 import { useContext } from "react";
 import { AppContext } from "components/AppProvider";
+
 import { v4 as uuidv4 } from "uuid";
 
 import styles from "styles/Blog.module.scss";
 
 export default function TagSuggestions() {
   function click(tag) {
-    if (app.searchRef.current.value.replaceAll(" ", "") === "tag:") {
+    if (app.searchBox.replaceAll(" ", "") === "tag:") {
       app.setSearchBox(`tag: ${tag}`);
       return;
     }
 
-    if (!app.searchRef.current.value.includes(tag)) {
-      app.setSearchBox(`${app.searchRef.current.value}, ${tag}`);
+    if (!app.searchBox.includes(tag)) {
+      app.setSearchBox(`${app.searchBox}, ${tag}`);
     }
   }
 
@@ -25,7 +26,16 @@ export default function TagSuggestions() {
           {app.allTags.map((tag) => {
             return (
               <span
-                className={styles.tag}
+                className={`${styles.tag} ${tag
+                  .toLowerCase()
+                  .replaceAll(" ", "")}
+                  ${
+                    app.selectedTags.includes(
+                      tag.toLowerCase().replaceAll(" ", "")
+                    )
+                      ? styles.tagSelected
+                      : ""
+                  }`}
                 key={uuidv4()}
                 onClick={() => {
                   click(tag);
@@ -37,7 +47,6 @@ export default function TagSuggestions() {
           })}
         </div>
       ) : (
-        // <>dfdf</>
         <div className={styles.tagHint}>
           Use{" "}
           <code

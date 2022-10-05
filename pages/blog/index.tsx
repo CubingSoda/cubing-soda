@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { AppContext } from "components/AppProvider";
 
 import { v4 as uuidv4 } from "uuid";
-import { useRouter, Router } from "next/router";
+import Router, { useRouter } from "next/router";
 
 import UI from "components/UI";
 
@@ -28,16 +28,19 @@ interface PostProps {
 
 const PostsPage = ({ allPosts, allTags }) => {
   const app = useContext(AppContext);
-
   const router = useRouter();
 
   useEffect(() => {
     // url query
-    app.setQuery(router.query.search);
+    const query = router.query;
+    app.setQuery(query.search);
 
     app.setAllTags(allTags);
     app.setAllPosts(allPosts);
-    app.setShown(allPosts);
+
+    if (!query.search || query.search === "") {
+      app.setShown(allPosts);
+    }
 
     // all tags
     let allTagsList = allTags
@@ -54,8 +57,8 @@ const PostsPage = ({ allPosts, allTags }) => {
     <UI page="Blog" keywords={["blog"]}>
       <div className={styles.wrapper}>
         <PostSearch />
-
         <TagSuggestions />
+
         {app.shown !== null
           ? app.shown.map((post) => {
               return <Post postData={post} key={uuidv4()} />;
