@@ -20,12 +20,16 @@ interface PostProps {
 }
 
 const Post: React.FC<PostProps> = ({ postData, content }) => {
-  function click(tag) {
-    // already selected -> unselect
-    if (app.selectedTags.includes(tag.toLowerCase().replaceAll(" ", ""))) {
-      app.selectedTags;
-      return;
+  // https://stackoverflow.com/a/5767357/17556679
+  function removeItemOnce(arr, value) {
+    var index = arr.indexOf(value);
+    if (index > -1) {
+      arr.splice(index, 1);
     }
+    return arr;
+  }
+
+  function click(tag) {
     if (
       app.searchBox.replaceAll(" ", "") === "" ||
       app.searchBox.toLowerCase().replaceAll(" ", "") === "tag:"
