@@ -55,7 +55,7 @@ const Post: React.FC<PostProps> = ({ postData, content }) => {
             return (
               <span
                 className={`${styles.tag} ${
-                  typeof tag.toLowerCase() === "string"
+                  typeof tag.toLowerCase().replaceAll(" ", "") === "string"
                     ? app.selectedTags.includes(
                         tag.toLowerCase().replaceAll(" ", "")
                       )
