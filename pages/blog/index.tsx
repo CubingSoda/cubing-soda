@@ -28,9 +28,13 @@ interface PostProps {
 
 const PostsPage = ({ allPosts, allTags }) => {
   const app = useContext(AppContext);
-  const [ready, setReady] = useState(null);
+
+  const router = useRouter();
 
   useEffect(() => {
+    // url query
+    app.setQuery(router.query.search);
+
     app.setAllTags(allTags);
     app.setAllPosts(allPosts);
     app.setShown(allPosts);
@@ -44,31 +48,20 @@ const PostsPage = ({ allPosts, allTags }) => {
 
     allTagsList = [...new Set(allTagsList)];
     app.setAllTags(allTagsList);
-  }, []);
-
-  // ready
-  const router = useRouter();
-  useEffect(() => {
-    if (!router.isReady) return;
-    setReady(true);
   }, [router.isReady]);
-
-  // url query
-  app.setQuery(router.query.search);
 
   return (
     <UI page="Blog" keywords={["blog"]}>
-      {ready ? (
-        <div className={styles.wrapper}>
-          <PostSearch />
+      <div className={styles.wrapper}>
+        <PostSearch />
 
-          <TagSuggestions />
-
-          {app.shown.map((post) => {
-            return <Post postData={post} key={uuidv4()} />;
-          })}
-        </div>
-      ) : null}
+        <TagSuggestions />
+        {app.shown !== null
+          ? app.shown.map((post) => {
+              return <Post postData={post} key={uuidv4()} />;
+            })
+          : ""}
+      </div>
     </UI>
   );
 };
