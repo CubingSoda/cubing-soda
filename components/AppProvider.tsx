@@ -99,6 +99,8 @@ export default function AppProvider({ children }: { children: ReactNode }) {
   // if x, sets searchbox val to x
   // returns searchbox val
   function setSearchBox(val: string) {
+    if (allPosts === null) return;
+
     // set url based on text input
     if (val === "") {
       // cleanup

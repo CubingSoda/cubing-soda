@@ -1,8 +1,8 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { AppContext } from "components/AppProvider";
 
 import { v4 as uuidv4 } from "uuid";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 import UI from "components/UI";
 

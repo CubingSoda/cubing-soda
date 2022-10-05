@@ -1,4 +1,4 @@
-import { useEffect, useRef, useContext, useState } from "react";
+import { useEffect, useContext } from "react";
 import { AppContext } from "components/AppProvider";
 
 import Router, { useRouter } from "next/router";
