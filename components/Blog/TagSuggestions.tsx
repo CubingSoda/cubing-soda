@@ -7,12 +7,12 @@ import styles from "styles/Blog.module.scss";
 export default function TagSuggestions() {
   function click(tag) {
     if (app.searchRef.current.value.replaceAll(" ", "") === "tag:") {
-      app.searchBox(`tag: ${tag}`);
+      app.setSearchBox(`tag: ${tag}`);
       return;
     }
 
     if (!app.searchRef.current.value.includes(tag)) {
-      app.searchBox(`${app.searchRef.current.value}, ${tag}`);
+      app.setSearchBox(`${app.searchRef.current.value}, ${tag}`);
     }
   }
 
@@ -42,7 +42,7 @@ export default function TagSuggestions() {
           Use{" "}
           <code
             onClick={() => {
-              app.searchBox("tag: ");
+              app.setSearchBox("tag: ");
             }}
           >
             tag:

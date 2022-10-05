@@ -51,7 +51,7 @@ const Ham = () => {
           <Link href="/blog">
             <a
               onClick={() => {
-                app.searchBox("");
+                app.setSearchBox("");
                 closeHamNav();
               }}
             >

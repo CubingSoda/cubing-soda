@@ -18,7 +18,8 @@ interface AppContextType {
   shown: any;
   setShown: (e) => void;
 
-  searchBox: (val?: string | string[]) => string;
+  searchBox: any;
+  setSearchBox: (val?: string | string[]) => string;
 
   query: string;
   setQuery: (e: string | string[]) => void;
@@ -36,6 +37,7 @@ export default function AppProvider({ children }: { children: ReactNode }) {
   const [searchRef, setSearchRef] = useState(useRef(null));
   const [shown, setShown] = useState(allPosts);
   const [query, setQuery] = useState(null);
+  const [searchBox, setSearchBoxState] = useState("");
 
   function getPostsByText(val) {
     setSuggestTags(false);
@@ -92,7 +94,7 @@ export default function AppProvider({ children }: { children: ReactNode }) {
 
   // if x, sets searchbox val to x
   // returns searchbox val
-  function searchBox(val: string) {
+  function setSearchBox(val: string) {
     // set url based on text input
     if (val === "") {
       // cleanup
@@ -115,6 +117,7 @@ export default function AppProvider({ children }: { children: ReactNode }) {
 
     searchRef.current.value = val;
     searchRef.current.focus();
+    setSearchBoxState(val);
     return val;
   }
 
@@ -136,7 +139,8 @@ export default function AppProvider({ children }: { children: ReactNode }) {
         shown,
         setShown,
 
-        searchBox,
+        searchBox: searchBox,
+        setSearchBox: setSearchBox,
 
         query,
         setQuery,

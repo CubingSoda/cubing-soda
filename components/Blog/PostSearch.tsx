@@ -18,7 +18,7 @@ const PostSearch: React.FC<PostSearchProps> = () => {
       Router.push("/blog");
       return;
     }
-    app.searchBox(query.search);
+    app.setSearchBox(query.search);
   }, []);
 
   return (
@@ -33,7 +33,7 @@ const PostSearch: React.FC<PostSearchProps> = () => {
         placeholder="Search..."
         className={styles.postSearch}
         onChange={() => {
-          app.searchBox(app.searchRef.current.value);
+          app.setSearchBox(app.searchRef.current.value);
         }}
         ref={app.searchRef}
       />
