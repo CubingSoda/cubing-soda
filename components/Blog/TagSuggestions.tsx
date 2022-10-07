@@ -7,6 +7,11 @@ import styles from "styles/Blog.module.scss";
 
 export default function TagSuggestions() {
   function click(tag) {
+    // second click
+    if (app.selectedTags.includes(tag.toLowerCase().replaceAll(" ", ""))) {
+      app.secondClick(tag);
+    }
+
     if (app.searchBox.replaceAll(" ", "") === "tag:") {
       app.setSearchBox(`tag: ${tag}`);
       return;

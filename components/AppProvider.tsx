@@ -26,6 +26,8 @@ interface AppContextType {
 
   selectedTags: string[];
   setSelectedTags: (e: string[]) => void;
+
+  secondClick: (e) => void;
 }
 
 // APP CONTEXT
@@ -129,6 +131,49 @@ export default function AppProvider({ children }: { children: ReactNode }) {
     return val;
   }
 
+  function secondClick(tag) {
+    // get the tags list without the prefix (tag:)
+    let stop = false;
+    let text = "";
+    for (const x of searchBox.slice(4)) {
+      if (!(x === " " && !stop)) {
+        stop = true;
+        text = `${text}${x}`;
+      }
+    }
+    const textSplit = text.split(",");
+    let tagsList = textSplit.map((x) => {
+      return x.toLowerCase().replaceAll(" ", "");
+    });
+
+    // get indexes which has a valid tag
+    let indexes = [];
+    selectedTags.forEach((e) => {
+      const lower = e.toLowerCase().replaceAll(" ", "");
+      if (!tagsList.includes(lower)) return;
+      indexes.push(tagsList.indexOf(lower));
+    });
+
+    // remove the tag
+    let textSplitNew = textSplit;
+    textSplit.forEach((x, i) => {
+      if (!indexes.includes(i)) return;
+      if (
+        x.toLowerCase().replaceAll(" ", "") !==
+        tag.toLowerCase().replaceAll(" ", "")
+      )
+        return;
+      textSplitNew.splice(i, 1);
+    });
+
+    // set
+    setSearchBox(
+      `tag: ${textSplitNew.map((x) => {
+        return x;
+      })}`
+    );
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -155,6 +200,8 @@ export default function AppProvider({ children }: { children: ReactNode }) {
 
         selectedTags,
         setSelectedTags,
+
+        secondClick,
       }}
     >
       {children}

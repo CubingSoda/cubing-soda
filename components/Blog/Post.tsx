@@ -20,16 +20,12 @@ interface PostProps {
 }
 
 const Post: React.FC<PostProps> = ({ postData, content }) => {
-  // https://stackoverflow.com/a/5767357/17556679
-  function removeItemOnce(arr, value) {
-    var index = arr.indexOf(value);
-    if (index > -1) {
-      arr.splice(index, 1);
-    }
-    return arr;
-  }
-
   function click(tag) {
+    // second click
+    if (app.selectedTags.includes(tag.toLowerCase().replaceAll(" ", ""))) {
+      app.secondClick(tag);
+    }
+
     if (
       app.searchBox.replaceAll(" ", "") === "" ||
       app.searchBox.toLowerCase().replaceAll(" ", "") === "tag:"
