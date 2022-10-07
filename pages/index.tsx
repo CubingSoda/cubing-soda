@@ -1,5 +1,5 @@
 import UI from "components/UI";
-import MediaLink from "components/MediaLink";
+import MediaLink from "components/Home/MediaLink";
 
 import { useState } from "react";
 import Link from "next/link";

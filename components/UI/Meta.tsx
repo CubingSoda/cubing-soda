@@ -12,9 +12,7 @@ const Meta: React.FC<MetaProps> = ({ page, desc, keywords }) => {
   titleText = page ? `${page} | CubingSoda` : `CubingSoda`;
 
   let descText;
-  descText = desc
-    ? desc
-    : "I showcase my projects and make posts every once in awhile. Reddit, Discord, and GitHub links are on the homepage.";
+  descText = desc ? desc : "My personal website, built using Next.js.";
 
   return (
     <Head>
@@ -33,7 +31,7 @@ const Meta: React.FC<MetaProps> = ({ page, desc, keywords }) => {
         <meta name="keywords" content="cubingsoda, programming, coding" />
       )}
       <meta name="description" content={descText} />
-      <meta property="og:image" content="/favicon.ico" />
+      <meta property="og:image" content="favicon.ico" />
       <meta property="og:title" content={titleText} />
       <meta property="og:description" content={descText} />
       <meta property="og:type" content="website" />

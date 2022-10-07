@@ -1,8 +1,9 @@
 import React from "react";
-import Meta from "components/Meta";
 
-import Nav from "components/Nav";
-import Footer from "components/Footer";
+import Meta from "components/UI/Meta";
+
+import Nav from "./Nav";
+import Footer from "./Footer";
 
 import styles from "styles/UI.module.scss";
 
@@ -21,6 +22,7 @@ const UI: React.FC<UIProps> = ({ children, page, desc, keywords }) => {
       <a className={styles.skipNavLink} href="#main-content">
         Skip Navigation
       </a>
+
       <Nav />
 
       <main id="main-content" className={styles.main} tabIndex={-1}>
