@@ -54,7 +54,13 @@ const Post: React.FC<PostProps> = ({ postData, content }) => {
           {postData.tags.map((tag) => {
             return (
               <span
-                className={`${styles.tag} `}
+                className={`${styles.tag} ${
+                  app.selectedTags.includes(
+                    tag.toLowerCase().replaceAll(" ", "")
+                  )
+                    ? styles.tagSelected
+                    : ""
+                }`}
                 key={uuidv4()}
                 onClick={() => {
                   click(tag);
