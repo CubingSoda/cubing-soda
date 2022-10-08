@@ -42,8 +42,12 @@
   overflow: auto;
   height: min(9rem, 23vh);
   border-radius: 10px;
-  border: 2px solid #354455;
+  box-shadow: 0px 0px 12px 10px hsla(191.2, 58.5%, 35.9%, 0.05);
   padding: 0.5rem;
+
+  @media (prefers-color-scheme: dark) {
+    box-shadow: 0px 0px 12px 10px hsla(0, 0%, 11.8%, 0.08);
+  }
 }
 
 .tagHint code {
