@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 import UI from "components/UI";
@@ -18,12 +19,15 @@ const Home = () => {
   return (
     <UI page="Home">
       <main className={styles.main}>
-        <img
-          src="/img/icons/site.png"
-          className={styles.heroIcon}
-          alt="Site Icon"
-          draggable="false"
-        />
+        <div className={styles.heroIcon}>
+          <Image
+            src="/img/icons/site.png"
+            alt="Site Icon"
+            draggable="false"
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
 
         <div className={styles.card}>
           <div>
