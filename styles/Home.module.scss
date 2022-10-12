@@ -13,19 +13,14 @@
 /*
   TOP SECTION
 */
+
 .heroIcon {
-  position: relative;
-  padding-bottom: 20%;
   width: min(20rem, 47vw);
-  height: 15rem;
+  @include float-up;
 
-  & > span > img {
-    border-radius: 0.6rem;
-
-    @media (prefers-color-scheme: light) {
-      box-shadow: 0px 0px 12px 10px rgba(24, 55, 62, 0.03);
-      border-radius: 1.3rem;
-    }
+  @media (prefers-color-scheme: light) {
+    box-shadow: 0px 0px 12px 10px rgba(24, 55, 62, 0.03);
+    border-radius: 1.3rem;
   }
 }
 
@@ -79,19 +74,13 @@
 }
 
 .logo {
-  position: relative;
-  padding-bottom: 7%;
-
   width: 2.55rem;
   transition: 0.16s ease-in;
+  border-radius: 0.6rem;
 
   &:hover {
     transform: translate(0px, -7px);
     transition: 0.14s ease-in;
-  }
-
-  & > span > img {
-    border-radius: 0.6rem;
   }
 }
 
