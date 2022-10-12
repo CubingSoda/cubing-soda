@@ -80,7 +80,7 @@
   margin-top: 1rem;
   width: fit-content;
   text-decoration: none !important;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid hsl(0, 0%, 0%);
 
   @include second-text;
   @include second-border-bottom;

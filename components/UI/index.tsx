@@ -1,6 +1,6 @@
 import React from "react";
 
-import Meta from "components/UI/Meta";
+import Meta from "components/Meta";
 
 import Nav from "./Nav";
 import Footer from "./Footer";

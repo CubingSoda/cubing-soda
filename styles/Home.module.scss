@@ -39,7 +39,7 @@
 }
 
 .gradient {
-  background: linear-gradient(45deg, #429eff, #00ffb7);
+  background: linear-gradient(45deg, hsl(211, 100%, 63%), hsl(163, 100%, 50%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;

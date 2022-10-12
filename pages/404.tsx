@@ -1,5 +1,4 @@
 import UI from "components/UI";
-
 import styles from "styles/NotFound.module.scss";
 
 export default function NotFound() {
