@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import styles from "styles/Home.module.scss";
 
 interface MediaLinksProps {
@@ -49,6 +50,7 @@ const MediaLinks: React.FC<MediaLinksProps> = ({ toggle, open }) => {
               rel="noreferrer"
               target="_blank"
               className={link.name}
+              key={uuidv4()}
             >
               <img
                 src={link.img}

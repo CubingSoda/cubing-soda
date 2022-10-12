@@ -6,7 +6,7 @@ interface AppContextType {
   allPosts: object[];
   setAllPosts: (e: object[]) => void;
 
-  allTags: any;
+  allTags: [{ tags: [] }] | [string];
   setAllTags: (e) => void;
 
   suggestTags: any;
