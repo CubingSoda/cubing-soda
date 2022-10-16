@@ -45,7 +45,12 @@ const Post: React.FC<PostProps> = ({ postData, content }) => {
     <>
       <section className={styles.post} key={uuidv4()}>
         <div className={styles.name}>{postData.title}</div>
-        <div className={styles.date}>{postData.date}</div>
+        <div className={styles.date}>
+          <span>
+            <i className="fa-regular fa-clock"></i>
+          </span>
+          <span>{postData.date}</span>
+        </div>
         <div className={styles.tags}>
           {postData.tags.map((tag) => {
             return (

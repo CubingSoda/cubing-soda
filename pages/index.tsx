@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Link from "next/link";
 
 import UI from "components/UI";
@@ -7,14 +6,6 @@ import MediaLinks from "components/Home/MediaLinks";
 import styles from "styles/Home.module.scss";
 
 const Home = () => {
-  function open() {
-    setToggle(!toggle);
-    const popup = document.querySelector(".popup-text");
-    popup.classList.toggle("show");
-  }
-
-  const [toggle, setToggle] = useState(false);
-
   return (
     <UI page="Home">
       <main className={styles.main}>
@@ -51,7 +42,7 @@ const Home = () => {
             </div>
           </div>
 
-          <MediaLinks toggle={toggle} open={open} />
+          <MediaLinks />
         </div>
       </main>
     </UI>

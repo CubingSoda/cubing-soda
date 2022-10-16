@@ -2,9 +2,10 @@
 
 html,
 body {
+  font-family: "Barlow", sans-serif;
   padding: 0;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
 }
 
 body.active {
@@ -34,21 +35,6 @@ a {
   }
 }
 
-code {
-  font-family: "Fira Code", monospace;
-  background: hsl(206, 60%, 22%);
-  color: white;
-  border-radius: 7px;
-  padding: 3px 7px;
-  font-size: 0.85rem;
-  margin: 2px 3px;
-}
-
-// Logos
-.site-icon {
-  width: 30px;
-}
-
 // burger
 .burger {
   margin: 0.6rem 0 0 1rem;
@@ -71,50 +57,6 @@ code {
 
 .fa-magnifying-glass {
   color: var(--second-text-color);
-}
-
-// popup
-.popup-text {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  gap: 1.9rem;
-  flex-wrap: wrap;
-  width: 18rem;
-  background: hsl(180, 7%, 80%);
-  text-align: center;
-  border-radius: 14px;
-  padding: 22px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -144px;
-  height: 11rem;
-  box-shadow: 0px 0px 22px 19px hsla(0, 0%, 0%, 0.1);
-
-  @media (prefers-color-scheme: dark) {
-    background-color: hsl(212, 19%, 42%);
-  }
-}
-
-.popup-text::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -13px;
-  border-width: 13px;
-  border-style: solid;
-  border-color: hsl(180, 7%, 80%) transparent transparent transparent;
-
-  @media (prefers-color-scheme: dark) {
-    border-color: hsl(212, 19%, 42%) transparent transparent transparent;
-  }
-}
-
-.show {
-  display: flex;
 }
 
 // BLOG

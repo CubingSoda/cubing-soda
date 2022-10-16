@@ -43,8 +43,8 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
-  font-size: 2.6rem;
-  letter-spacing: 0.5px;
+  font-size: 2.7rem;
+  letter-spacing: 0.8px;
   text-align: center;
 }
 
@@ -57,7 +57,7 @@
 
 .text {
   margin-top: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   text-align: center;
 }
 
@@ -70,7 +70,7 @@
 */
 
 .links {
-  margin-top: 1.3rem;
+  margin-top: 1.6rem;
 }
 
 .logo {
@@ -90,16 +90,17 @@
   margin: 1rem 0 2rem 0;
 }
 
+// show profiles btn
 .mobile {
+  display: flex;
   color: var(--second-text-color);
   background: var(--bg-color);
   cursor: pointer;
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 1rem;
-  border: 2px solid hsl(208, 33%, 29%);
+  border: 3px solid hsl(208, 33%, 29%);
   width: fit-content;
   margin: 0 auto 3rem auto;
   padding: 0.6rem 2rem;
@@ -113,14 +114,52 @@
   user-select: none;
 }
 
-.mobile .show {
-  visibility: visible;
-  @include fade-in;
-}
-
 .mobile span {
   font-size: 1.2rem;
   text-align: center;
+}
+
+.show {
+  display: flex !important;
+}
+
+.popupText {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 1.9rem;
+  flex-wrap: wrap;
+  width: 18rem;
+  background: hsl(0, 0%, 95%);
+  text-align: center;
+  border-radius: 14px;
+  padding: 22px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -144px;
+  height: 11rem;
+  box-shadow: 0px 0px 22px 19px hsla(0, 0%, 0%, 0.1);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: hsl(212, 19%, 42%);
+  }
+}
+
+.popupText::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -13px;
+  border-width: 13px;
+  border-style: solid;
+  border-color: hsl(180, 7%, 80%) transparent transparent transparent;
+
+  @media (prefers-color-scheme: dark) {
+    border-color: hsl(212, 19%, 42%) transparent transparent transparent;
+  }
 }
 
 @media (max-width: 1107px) {

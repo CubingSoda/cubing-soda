@@ -1,12 +1,20 @@
+import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+
 import styles from "styles/Home.module.scss";
 
-interface MediaLinksProps {
-  toggle: boolean;
-  open: () => void;
-}
+interface MediaLinksProps {}
 
-const MediaLinks: React.FC<MediaLinksProps> = ({ toggle, open }) => {
+const MediaLinks: React.FC<MediaLinksProps> = () => {
+  function open() {
+    setToggle(!toggle);
+    const popup = document.querySelector(`.${styles.popupText}`);
+
+    popup.classList.toggle(styles.show);
+  }
+
+  const [toggle, setToggle] = useState(false);
+
   const links = [
     {
       name: "GitHub",
@@ -67,22 +75,22 @@ const MediaLinks: React.FC<MediaLinksProps> = ({ toggle, open }) => {
   return (
     <div className={styles.link}>
       {/* Desktop */}
+      <section className={styles.desktop}>
+        <LinksComponent />
+      </section>
+
+      {/* Mobile */}
       <section className={styles.mobile} onClick={open}>
         {toggle ? (
           <i className="fa-solid fa-arrow-down fa-2xl"></i>
         ) : (
           <i className="fa-solid fa-arrow-up fa-2xl"></i>
         )}
-        <span>{toggle ? <>Hide</> : <>Show</>} Social Profiles</span>
+        <span>{toggle ? "Hide" : "Show"} Social Profiles</span>
 
-        <div className="popup-text">
+        <div className={`${styles.popupText} popup-text`}>
           <LinksComponent />
         </div>
-      </section>
-
-      {/* Mobile */}
-      <section className={styles.desktop}>
-        <LinksComponent />
       </section>
     </div>
   );

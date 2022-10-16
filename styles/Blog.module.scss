@@ -6,6 +6,20 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  code {
+    font-family: "Fira Code", monospace;
+    background: var(--code-bg);
+    color: white;
+    border-radius: 7px;
+    padding: 3px 7px;
+    font-size: 0.85rem;
+    margin: 2px 3px;
+  }
+  pre > code {
+    display: block;
+    padding: 0.3rem 1rem;
+  }
 }
 
 .post {
@@ -21,8 +35,15 @@
 }
 
 .name {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 2.4rem;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
 }
 
 .tags {
@@ -71,7 +92,7 @@
 }
 
 .contentDesc {
-  line-height: 1.7;
+  line-height: 1.6;
   font-size: 1rem;
 }
 
@@ -93,7 +114,7 @@
 .post {
   h1 {
     font-size: 2rem;
-    font-weight: normal;
+    font-weight: bold;
   }
   h2 {
     font-size: 1.6rem;
