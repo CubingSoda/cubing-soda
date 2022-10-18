@@ -61,7 +61,7 @@ const Ham = () => {
 
           <a
             onClick={closeHamNav}
-            href="https://github.com/CubingSoda/personal-website"
+            href="https://github.com/CubingSoda/site"
             target="_blank"
             rel="noreferrer"
             className={styles.repoLink}
