@@ -1,6 +1,6 @@
 import Meta from "components/Meta";
 
-import Nav from "./Nav";
+import Nav from "./NavBar";
 import Footer from "./Footer";
 
 import styles from "styles/UI.module.scss";

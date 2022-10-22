@@ -43,7 +43,7 @@ a {
 .burger-lines,
 .burger-lines::before,
 .burger-lines::after {
-  background-color: var(--text-color) !important;
+  background-color: var(--second-text-color) !important;
 }
 
 .burger.burger-squeeze.open .burger-lines {

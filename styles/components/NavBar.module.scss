@@ -1,5 +1,9 @@
 @import "styles/mixins.scss";
 
+.nav {
+  font-family: "Roboto", sans-serif;
+}
+
 .regular {
   display: flex;
   justify-content: center;
@@ -51,7 +55,7 @@
 
 .hamContent {
   position: fixed;
-  border: 1px solid var(--text-color);
+  border: 1px solid var(--second-text-color);
   padding: 1rem;
   border-radius: 0.6rem;
   margin: 2rem;
