@@ -1,5 +1,3 @@
-import React from "react";
-
 import Meta from "components/Meta";
 
 import Nav from "./Nav";

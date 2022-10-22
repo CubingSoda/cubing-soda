@@ -1,10 +1,11 @@
-import React from "react";
+import { useContext } from "react";
+
 import Link from "next/link";
+import { useRouter } from "next/router";
+
 import { v4 as uuidv4 } from "uuid";
 
-import { useContext } from "react";
 import { AppContext } from "components/AppProvider";
-
 import styles from "styles/Blog.module.scss";
 
 interface PostProps {
@@ -17,9 +18,12 @@ interface PostProps {
     content: string;
   };
   content?: boolean;
+  fullPost?: boolean;
 }
 
-const Post: React.FC<PostProps> = ({ postData, content }) => {
+const Post: React.FC<PostProps> = ({ postData, content, fullPost }) => {
+  const router = useRouter();
+
   function click(tag) {
     // second click
     if (app.selectedTags.includes(tag.toLowerCase().replaceAll(" ", ""))) {
@@ -31,6 +35,7 @@ const Post: React.FC<PostProps> = ({ postData, content }) => {
       app.searchBox.toLowerCase().replaceAll(" ", "") === "tag:"
     ) {
       app.setSearchBox(`tag: ${tag}`);
+
       return;
     }
 

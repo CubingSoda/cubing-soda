@@ -64,6 +64,7 @@ const MediaLinks: React.FC<MediaLinksProps> = () => {
                 src={link.img}
                 alt={`${link.name}`}
                 className={styles.logo}
+                draggable="false"
               />
             </a>
           );

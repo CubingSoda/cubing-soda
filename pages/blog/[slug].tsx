@@ -1,5 +1,8 @@
-import React from "react";
+import { useEffect, useContext } from "react";
+import { AppContext } from "components/AppProvider";
+
 import UI from "components/UI";
+import { useRouter } from "next/router";
 
 import * as API from "lib/blog-api";
 import markdownToHtml from "lib/md-to-html";
@@ -16,13 +19,41 @@ interface PostProps {
     tags: string[];
     content: string;
   };
+  allPosts: [];
+  allTags: string[];
 }
 
-const SinglePost: React.FC<PostProps> = ({ post }) => {
+const SinglePost: React.FC<PostProps> = ({ post, allPosts, allTags }) => {
+  const app = useContext(AppContext);
+  const router = useRouter();
+
+  useEffect(() => {
+    // url query
+    const query = router.query;
+    app.setQuery(query.search);
+
+    app.setAllTags(allTags);
+    app.setAllPosts(allPosts);
+
+    if (!query.search || query.search === "") {
+      app.setShown(allPosts);
+    }
+
+    // all tags
+    let allTagsList = allTags
+      .map((item) => {
+        return Object.values(item).flat();
+      })
+      .flat();
+
+    allTagsList = [...new Set(allTagsList)];
+    app.setAllTags(allTagsList);
+  }, [router.isReady]);
+
   return (
     <UI page={post.title} desc={post.desc} keywords={post.tags}>
       <div className={styles.wrapper}>
-        <Post postData={post} content />
+        <Post postData={post} content fullPost />
       </div>
     </UI>
   );
@@ -41,8 +72,22 @@ export async function getStaticProps({ params }) {
   ]);
   const content = await markdownToHtml(post.content || "");
 
+  // new
+  const allPosts = API.getAllPosts([
+    "slug",
+    "title",
+    "date",
+    "tags",
+    "desc",
+    "content",
+  ]);
+
+  const allTags = API.getAllPosts(["tags"]);
+
   return {
     props: {
+      allPosts,
+      allTags,
       post: {
         ...post,
         content,
