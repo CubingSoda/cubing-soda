@@ -82,12 +82,16 @@
   cursor: pointer;
   font-family: "Poppins";
   font-size: 0.9rem;
-  color: var(--second-text-color);
+  color: var(--second-text-colors);
   border: 1px solid var(--second-text-color);
   padding: 0.1rem 0.4rem;
   margin: 0.3rem;
   border-radius: 6px;
   transition: 0.15s ease box-shadow;
+}
+
+.tags:not(.tagSuggestions) > .tag:first-child {
+  margin-left: 0;
 }
 
 .tag:hover {
